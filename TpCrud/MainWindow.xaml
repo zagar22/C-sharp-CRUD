@@ -1,0 +1,49 @@
+﻿<Window x:Class="TpCrud.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TpCrud"
+        mc:Ignorable="d"
+        Title="Todo Autos" Height="450" Width="800" Background="#FFEDEBEB" Icon="/logo.png">
+
+    <Grid Margin="20,0,10,0" >
+        <Grid Margin="0,10,0,20">
+            <Grid HorizontalAlignment="Center" Height="63" VerticalAlignment="Top" Width="770" Background="#FF0C3397">
+                <Label Content="Filtrar por Nombre" BorderBrush="White" HorizontalAlignment="Left" Margin="415,0,0,0" VerticalAlignment="Center" Width="125" FontStyle="Italic" Foreground="White" FontWeight="Bold"/>
+            </Grid>
+            <Image HorizontalAlignment="Center" Height="341" Margin="0,63,0,0" VerticalAlignment="Top" Width="770" Source="/frente consesionaria.jpg" Stretch="Fill" Opacity="0.4"/>
+            <!--<DataGrid x:Name="infoAutos" HorizontalAlignment="Left" Height="272" Margin="385,87,0,0" VerticalAlignment="Top" Width="360" d:ItemsSource="{d:SampleData ItemCount=5}" RenderTransformOrigin="0.486,0.699" MaxColumnWidth="90" IsSynchronizedWithCurrentItem="True"/>-->
+
+            <DataGrid x:Name="infoAutos" IsReadOnly="True" AutoGenerateColumns="False" Margin="420,93,35,30" Opacity="0.85">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding marca}" Header="Marca" Width="*"/>
+                    <DataGridTextColumn Binding="{Binding modelo}" Width="*" Header="Modelo"/>
+                    <DataGridTextColumn Binding="{Binding patente}" Width="*" Header="Patente"/>
+                    <DataGridTextColumn Binding="{Binding precio}" Width="*" Header="Precio"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+        </Grid>
+        <TextBox Name="txtBuscar" BorderThickness="2" BorderBrush="LightGray"  HorizontalAlignment="Left" Height="25" Margin="546,30,0,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" SelectionBrush="#FF0D0E0F" Foreground="#FF0D0E0F" TextChanged="txtBuscar_TextChanged">
+            <TextBox.Background>
+                <SolidColorBrush Color="Snow" Opacity="1"/>
+            </TextBox.Background>
+        </TextBox>
+        <Label FontSize="24" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,22,0,0" Content="TODO AUTOS" FontWeight="Bold" FontFamily="Arial Black" Width="235" Height="33" FontStretch="Normal" />
+
+        <Grid HorizontalAlignment="Left" Height="308" Margin="10,97,0,0" VerticalAlignment="Top" Width="375">
+            <Label Content="Marca" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="90" FontStyle="Italic" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="24" Margin="119,12,0,0" TextWrapping="Wrap" Text="" Name="txtMarca" VerticalAlignment="Top" Width="199"/>
+            <Label Content="Modelo" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="90" FontStyle="Italic" FontWeight="Bold"/>
+            <TextBox Height="24" Margin="119,57,57,0" TextWrapping="Wrap" Text="" Name="txtModelo" VerticalAlignment="Top"/>
+            <Label Content="Patente" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="90" FontStyle="Italic" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="24" Margin="119,102,0,0" TextWrapping="Wrap" Text="" Name="txtPatente" VerticalAlignment="Top" Width="199"/>
+            <Label Content="Precio" HorizontalAlignment="Left" Margin="10,149,0,0" VerticalAlignment="Top" Width="90" FontStyle="Italic" FontWeight="Bold"/>
+            <TextBox HorizontalAlignment="Left" Height="24" Margin="119,151,0,0" TextWrapping="Wrap" Text="" Name="txtPrecio" VerticalAlignment="Top" Width="199"/>
+            <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="42,226,0,0" VerticalAlignment="Top" Height="28" Width="78" Background="#FF6086D9" Foreground="White" FontStyle="Italic" FontWeight="Bold" Style="{StaticResource miBoton}" Click="btnGuardar_Click" />
+            <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Margin="140,226,0,0" VerticalAlignment="Top" Height="28" Width="78" Foreground="White" Background="#FF6086D9" FontStyle="Italic" FontWeight="Bold" Style="{StaticResource miBoton}" Click="btnEditar_Click"/>
+            <Button x:Name="btnEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="240,226,0,0" VerticalAlignment="Top" Height="28" Width="78" Foreground="White" Background="#FF6086D9" FontStyle="Italic" FontWeight="Bold" Style="{StaticResource miBoton}" Click="btnEliminar_Click"/>
+        </Grid>
+    </Grid>
+</Window>
